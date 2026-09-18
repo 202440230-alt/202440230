@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - SaveSpace</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: rgb(255, 250, 246);
+            color: rgb(70, 55, 55);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: rgb(255, 244, 235);
+            padding: 18px 30px;
+            border-bottom: 3px solid rgb(216, 158, 158);
+        }
+
+        .header-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        h1 {
+            font-size: 26px;
+            margin: 0;
+        }
+
+        h1 .save {
+            color: rgb(201, 125, 125);
+        }
+
+        h1 .space {
+            color: rgb(216, 158, 158);
+        }
+
+        .tagline {
+            margin: 2px 0 0;
+            font-size: 12px;
+            font-style: italic;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgb(190, 150, 150);
+        }
+
+        h2 {
+            color: rgb(216, 158, 158);
+            font-size: 25px;
+        }
+
+        h3 {
+            color: rgb(216, 158, 158);
+            margin-top: 0;
+        }
+
+        nav {
+            margin-top: 0;
+        }
+
+        nav a {
+            margin-right: 22px;
+            padding-bottom: 4px;
+            color: rgb(150, 90, 90);
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 14px;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            border-bottom-color: rgb(216, 158, 158);
+        }
+
+        nav a.active-link {
+            color: rgb(201, 125, 125);
+            border-bottom-color: rgb(201, 125, 125);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: rgb(201, 125, 125);
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .hero {
+            padding: 40px 30px;
+            background-color: rgb(250, 231, 220);
+        }
+
+        .hero-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .content-block {
+            max-width: 900px;
+            margin: 45px auto 0;
+            padding: 0 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 22px;
+            background-color: rgb(201, 125, 125);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: rgb(175, 100, 100);
+        }
+
+        .action-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .action-card {
+            flex: 1;
+            min-width: 220px;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid rgb(230, 210, 205);
+            border-radius: 10px;
+            transition: border-color 0.3s;
+        }
+
+        .action-card:hover {
+            border-color: rgb(201, 125, 125);
+        }
+
+        footer {
+            margin-top: 60px;
+            padding: 25px 30px;
+            background-color: rgb(255, 244, 235);
+            border-top: 3px solid rgb(216, 158, 158);
+        }
+
+        .footer-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .footer-col {
+            flex: 1 1 220px;
+        }
+
+        .footer-col a {
+            display: block;
+            margin-bottom: 8px;
+            color: rgb(150, 90, 90);
+            text-decoration: none;
+        }
+
+        .footer-col a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 700px) {
+            .hamburger {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+                margin-top: 15px;
+            }
+
+            nav.nav-open {
+                display: flex;
+                flex-direction: column;
+            }
+
+            nav a {
+                margin: 8px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo-block">
+                <h1><span class="save">Save</span><span class="space">Space</span></h1>
+                <p class="tagline">Your Self-Storage Facility</p>
+            </div>
+
+            <button class="hamburger" onclick="document.getElementById('main-nav').classList.toggle('nav-open')">☰</button>
+
+            <nav id="main-nav">
+                <a class="active-link" href="home.html">Home</a>
+                <a href="reservations.html">My Reservations</a>
+                <a href="profile.html">Profile</a>
+                <a href="index.html">Log Out</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-inner">
+            <h2>Welcome back!</h2>
+
+            <p>
+                This is a sample of what a logged-in SaveSpace user would see.
+                A real account system has not been built yet, so this page
+                shows the planned layout using sample content.
+            </p>
+        </div>
+    </section>
+
+    <main>
+
+        <section class="content-block">
+            <h2>Quick Actions</h2>
+
+            <div class="action-list">
+
+                <div class="action-card">
+                    <h3>Browse Storage Spaces</h3>
+                    <p>Look through available lockers and rooms.</p>
+                    <a class="btn" href="index.html#storage">Browse Spaces</a>
+                </div>
+
+                <div class="action-card">
+                    <h3>My Reservations</h3>
+                    <p>Check the status of your current bookings.</p>
+                    <a class="btn" href="reservations.html">View Reservations</a>
+                </div>
+
+                <div class="action-card">
+                    <h3>My Profile</h3>
+                    <p>View or update your account details.</p>
+                    <a class="btn" href="profile.html">Go to Profile</a>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-col">
+                <h1 style="font-size:18px;"><span class="save">Save</span><span class="space">Space</span></h1>
+                <p>Simple and accessible temporary storage for people in Palawan.</p>
+            </div>
+
+            <div class="footer-col">
+                <h2 style="font-size:16px;">Contact</h2>
+                <p>
+                    Email: savespacepalawan@email.com<br>
+                    Contact: 09XX-XXX-XXXX
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h2 style="font-size:16px;">Links</h2>
+                <a href="#">Terms &amp; Conditions</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
