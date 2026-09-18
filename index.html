@@ -9,17 +9,47 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
+            background-color: rgb(255, 250, 246);
+            color: rgb(70, 55, 55);
+            line-height: 1.6;
         }
 
         header {
             background-color: rgb(255, 244, 235);
-            padding: 15px;
+            padding: 18px 30px;
+            border-bottom: 3px solid rgb(216, 158, 158);
+        }
+
+        .header-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
         }
 
         h1 {
+            font-size: 26px;
+            margin: 0;
+        }
+
+        h1 .save {
             color: rgb(201, 125, 125);
-            font-size: 30px;
+        }
+
+        h1 .space {
+            color: rgb(216, 158, 158);
+        }
+
+        .tagline {
+            margin: 2px 0 0;
+            font-size: 12px;
+            font-style: italic;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: rgb(190, 150, 150);
         }
 
         h2 {
@@ -29,32 +59,264 @@
 
         h3 {
             color: rgb(216, 158, 158);
+            margin-top: 0;
         }
 
         nav {
-            margin-top: 10px;
+            margin-top: 0;
         }
 
         nav a {
-            margin-right: 15px;
+            margin-right: 22px;
+            padding-bottom: 4px;
+            color: rgb(150, 90, 90);
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 14px;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s, color 0.3s;
         }
 
-        section {
-            margin-top: 30px;
+        nav a:hover {
+            border-bottom-color: rgb(216, 158, 158);
+        }
+
+        nav a.active-link {
+            color: rgb(201, 125, 125);
+            border-bottom-color: rgb(201, 125, 125);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: rgb(201, 125, 125);
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .hero {
+            padding: 50px 30px;
+            background-color: rgb(250, 231, 220);
+        }
+
+        .hero-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .hero-photo {
+            width: 380px;
+            max-width: 100%;
+            height: 260px;
+            object-fit: cover;
+            object-position: left;
+            border-radius: 8px;
+            border: 1px solid rgb(230, 210, 205);
+        }
+
+        .content-block {
+            max-width: 900px;
+            margin: 45px auto 0;
+            padding: 0 30px;
+        }
+
+        .info-box {
+            background-color: white;
+            border: 1px solid rgb(230, 210, 205);
+            border-radius: 8px;
+            padding-top: 25px;
+            padding-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 22px;
+            background-color: rgb(201, 125, 125);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: rgb(175, 100, 100);
+        }
+
+        .about-content {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .about-photo {
+            width: 320px;
+            max-width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid rgb(230, 210, 205);
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 260px;
+        }
+
+        .storage-list {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 20px;
         }
 
         article {
-            margin-bottom: 25px;
+            flex: 1;
+            margin: 0 0 25px 0;
+            padding: 15px;
+            background-color: white;
+            border: 1px solid rgb(230, 210, 205);
+            border-radius: 10px;
+            transition: border-color 0.3s;
+        }
+
+        article:hover {
+            border-color: rgb(201, 125, 125);
+        }
+
+        .storage-image {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid rgb(230, 210, 205);
+            transition: transform 0.3s;
+        }
+
+        .storage-image:hover {
+            transform: scale(1.05);
+        }
+
+        article ul {
+            padding-left: 18px;
+            margin: 12px 0;
+        }
+
+        article li {
+            margin-bottom: 4px;
+        }
+
+        mark {
+            background-color: rgb(200, 225, 195);
+            color: rgb(50, 80, 45);
+            padding: 2px 10px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+
+        mark.limited {
+            background-color: rgb(245, 220, 180);
+            color: rgb(110, 80, 20);
+        }
+
+        .steps {
+            list-style-position: inside;
+            padding-left: 0;
+        }
+
+        .steps li {
+            background-color: rgb(255, 248, 244);
+            border-left: 4px solid rgb(201, 125, 125);
+            padding: 10px 15px;
+            margin-bottom: 10px;
+        }
+
+        .benefits {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .benefits li {
+            background-color: white;
+            border: 1px solid rgb(216, 158, 158);
+            border-radius: 20px;
+            padding: 8px 18px;
         }
 
         footer {
-            margin-top: 40px;
-            padding-top: 15px;
-            border-top: 1px solid gray;
+            margin-top: 60px;
+            padding: 25px 30px;
+            background-color: rgb(255, 244, 235);
+            border-top: 3px solid rgb(216, 158, 158);
         }
 
-        footer a {
-            margin-right: 10px;
+        .footer-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .footer-col {
+            flex: 1 1 220px;
+        }
+
+        .footer-col a {
+            display: block;
+            margin-bottom: 8px;
+            color: rgb(150, 90, 90);
+            text-decoration: none;
+        }
+
+        .footer-col a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 700px) {
+            .hamburger {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                width: 100%;
+                margin-top: 15px;
+            }
+
+            nav.nav-open {
+                display: flex;
+                flex-direction: column;
+            }
+
+            nav a {
+                margin: 8px 0;
+            }
+
+            .storage-list {
+                flex-wrap: wrap;
+            }
+
+            article {
+                flex: 1 1 100%;
+            }
         }
     </style>
 </head>
@@ -62,97 +324,137 @@
 <body>
 
     <header>
-        <h1>SaveSpace</h1>
+        <div class="header-inner">
+            <div class="logo-block">
+                <h1><span class="save">Save</span><span class="space">Space</span></h1>
+                <p class="tagline">Your Self-Storage Facility</p>
+            </div>
 
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="storage_spaces.html">Storage Spaces</a>
-            <a href="#how-it-works">How It Works</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-            <a href="login.html">Log In</a>
-            <a href="register.html">Register</a>
-        </nav>
+            <button class="hamburger" onclick="document.getElementById('main-nav').classList.toggle('nav-open')">☰</button>
+
+            <nav id="main-nav">
+                <a class="active-link" href="index.html">Home</a>
+                <a href="login.html">Log In</a>
+                <a href="register.html">Sign Up</a>
+            </nav>
+        </div>
     </header>
+
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-text">
+                <h2>More Space for What Matters</h2>
+
+                <p>
+                    SaveSpace provides simple and accessible temporary storage
+                    for people in Palawan.
+                </p>
+
+                <p>
+                    Find a storage space for your belongings, household items,
+                    luggage, or small business inventory.
+                </p>
+
+                <a class="btn" href="#storage">View Storage Spaces</a>
+            </div>
+
+            <img class="hero-photo" src="images/savespace-hero-storage-facility.png" alt="SaveSpace storage unit hallway">
+        </div>
+    </section>
 
     <main>
 
-        <section>
-            <h2>More Space for What Matters</h2>
+        <section id="about" class="content-block info-box">
+            <h2>About SaveSpace</h2>
 
-            <p>
-                SaveSpace provides simple and accessible storage options for students,
-                families, travellers, and small businesses in Palawan.
-            </p>
+            <div class="about-content">
+                <img class="about-photo" src="images/savespace-about-facility-reception.png" alt="SaveSpace reception area">
 
-            <p>
-                <a href="storage_spaces.html">Find a Space</a>
-            </p>
+                <div class="about-text">
+                    <p>
+                        SaveSpace is a storage space booking website designed for
+                        people in Palawan who need a safe place to temporarily
+                        store their belongings.
+                    </p>
 
-            <p>
-                <a href="#how-it-works">How It Works</a>
-            </p>
+                    <p>
+                        It is intended for students, families, travellers, and
+                        small business owners who need additional storage space.
+                    </p>
+                </div>
+            </div>
         </section>
 
-        <section>
-            <h2>Available Storage Options</h2>
+        <section id="storage" class="content-block">
+            <h2>Storage Spaces</h2>
 
-            <article>
-                <h3>Small Locker</h3>
+            <p>
+                Choose a storage option based on the amount of space you need.
+            </p>
 
-                <p>
-                    Suitable for documents, bags, and small boxes.
-                </p>
+            <div class="storage-list">
 
-                <p>
-                    Size: Small<br>
-                    Price: ₱500 per month<br>
-                    Location: Puerto Princesa City<br>
-                    Availability: Available
-                </p>
+                <article>
+                    <img class="storage-image" src="images/savespace-small-locker.png" alt="Small locker storage unit">
 
-                <a href="storage_spaces.html">View Details</a>
-            </article>
+                    <h3>Small Locker</h3>
 
-            <article>
-                <h3>Medium Storage Room</h3>
+                    <p>
+                        For documents, bags, books, and small boxes.
+                    </p>
 
-                <p>
-                    Suitable for student belongings and household items.
-                </p>
+                    <ul>
+                        <li>Price: ₱500 per month</li>
+                        <li>Location: Puerto Princesa City</li>
+                        <li>Availability: <mark>Available</mark></li>
+                    </ul>
 
-                <p>
-                    Size: Medium<br>
-                    Price: ₱1,500 per month<br>
-                    Location: Puerto Princesa City<br>
-                    Availability: Available
-                </p>
+                    <a class="btn" href="register.html">Reserve This Space</a>
+                </article>
 
-                <a href="storage_spaces.html">View Details</a>
-            </article>
+                <article>
+                    <img class="storage-image" src="images/savespace-medium-storage-room.png" alt="Medium storage room">
 
-            <article>
-                <h3>Large Storage Room</h3>
+                    <h3>Medium Storage Room</h3>
 
-                <p>
-                    Suitable for furniture and small business inventory.
-                </p>
+                    <p>
+                        For student belongings and household items.
+                    </p>
 
-                <p>
-                    Size: Large<br>
-                    Price: ₱3,000 per month<br>
-                    Location: Puerto Princesa City<br>
-                    Availability: Available
-                </p>
+                    <ul>
+                        <li>Price: ₱1,500 per month</li>
+                        <li>Location: Puerto Princesa City</li>
+                        <li>Availability: <mark>Available</mark></li>
+                    </ul>
 
-                <a href="storage_spaces.html">View Details</a>
-            </article>
+                    <a class="btn" href="register.html">Reserve This Space</a>
+                </article>
+
+                <article>
+                    <img class="storage-image" src="images/savespace-large-storage-room.png" alt="Large storage room">
+
+                    <h3>Large Storage Room</h3>
+
+                    <p>
+                        For furniture and small business inventory.
+                    </p>
+
+                    <ul>
+                        <li>Price: ₱3,000 per month</li>
+                        <li>Location: Puerto Princesa City</li>
+                        <li>Availability: <mark class="limited">Limited</mark></li>
+                    </ul>
+
+                    <a class="btn" href="register.html">Reserve This Space</a>
+                </article>
+
+            </div>
         </section>
 
-        <section id="how-it-works">
+        <section id="how-it-works" class="content-block info-box">
             <h2>How SaveSpace Works</h2>
 
-            <ol>
+            <ol class="steps">
                 <li>Choose a storage space.</li>
                 <li>Create an account.</li>
                 <li>Submit a reservation request.</li>
@@ -160,10 +462,10 @@
             </ol>
         </section>
 
-        <section>
+        <section class="content-block info-box">
             <h2>Why Choose SaveSpace?</h2>
 
-            <ul>
+            <ul class="benefits">
                 <li>Local service for Palawan residents</li>
                 <li>Affordable storage options</li>
                 <li>Simple reservation process</li>
@@ -172,39 +474,39 @@
             </ul>
         </section>
 
-        <section>
+        <section class="content-block info-box">
             <h2>Need More Room?</h2>
 
             <p>
-                Create an account and find a storage option that fits your needs.
+                Create an account to start your storage reservation.
             </p>
 
-            <a href="register.html">Create an Account</a>
+            <a class="btn" href="register.html">Sign Up</a>
         </section>
 
     </main>
 
     <footer>
-        <h3>SaveSpace</h3>
+        <div class="footer-inner">
+            <div class="footer-col">
+                <h3>SaveSpace</h3>
+                <p>Simple and accessible temporary storage for people in Palawan.</p>
+            </div>
 
-        <p>
-            Simple and accessible temporary storage for people in Palawan.
-        </p>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <p>
+                    Email: savespacepalawan@email.com<br>
+                    Contact: 09XX-XXX-XXXX
+                </p>
+            </div>
 
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="storage_spaces.html">Storage Spaces</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-
-        <p>
-            Email: savespacepalawan@email.com<br>
-            Contact: 09XX-XXX-XXXX
-        </p>
-
-        <a href="#">Terms & Conditions</a>
-        <a href="#">Privacy Policy</a>
+            <div class="footer-col">
+                <h3>Links</h3>
+                <a href="#">Terms &amp; Conditions</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
     </footer>
 
 </body>
