@@ -143,6 +143,13 @@
             background-color: rgb(175, 100, 100);
         }
 
+        .demo-note {
+            font-size: 13px;
+            font-style: italic;
+            color: rgb(150, 90, 90);
+            margin-top: 10px;
+        }
+
         .form-links {
             margin-top: 18px;
             font-size: 14px;
@@ -254,8 +261,12 @@
                 <label for="confirm_password">Confirm Password</label>
                 <input type="password" id="confirm_password" name="confirm_password">
 
-                <button type="submit" class="btn">Create Account</button>
+                <a class="btn" href="home.html">Create Account</a>
             </form>
+
+            <p class="demo-note">
+                (This demo button leads to the sample logged-in homepage — there is no real account system yet.)
+            </p>
 
             <p class="form-links">
                 Already have an account?
