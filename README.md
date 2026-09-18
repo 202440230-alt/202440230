@@ -4,177 +4,47 @@ SaveSpace is a simple storage space booking website designed for people in Palaw
 This project is inspired by storage rental businesses such as ExtraSpace (based in Cebu), but it is designed as a smaller and more realistic system for Palawan.
 
 # Project Purpose
-## SaveSpace aims to help:
+SaveSpace aims to help:
 - Students who need temporary storage during school breaks
 - Families who are moving or renovating
 - Small business owners who need extra inventory space
 - Travellers who need short-term luggage storage
 
-# Main Features
-- View available storage spaces
-- See storage size, location, price, and availability
-- Register a new account
-- Log in to an existing account
-- Submit a storage reservation request
-- View reservation details
-- Contact SaveSpace for questions
-- Responsive design for mobile and desktop
+# Current Pages
 
-# Website Pages
+## Public Pages
+- `index.html` — the landing/home page. Includes the hero, About, Storage Spaces (with three sample storage cards), How It Works, Why Choose SaveSpace, and a call-to-action, all on one page.
+- `login.html` — log in form (email, password, remember me).
+- `register.html` — account creation form (name, email, contact number, password).
 
-## 1. Landing Page
-The landing page is the first page visitors will see.
-- Header
-- SaveSpace logo
-- Home
-- Storage Spaces
-- How It Works
-- About
-- Contact
-- Log In button
-- Register button
-- Hero Section
+## Logged-In Pages (prototype only, no real backend)
+- `home.html` — sample logged-in dashboard with a welcome message and quick-action shortcuts.
+- `reservations.html` — sample reservation table showing storage type, dates, price, and status.
+- `profile.html` — sample account summary and an editable-looking profile form.
 
-## Main heading:
-More Space for What Matters
-Supporting text:
-SaveSpace provides simple and accessible storage options for students, families, travellers, and small businesses in Palawan.
-Buttons:
-Find a Space → Storage Spaces section
-How It Works → How It Works section
+Public navigation: Home | Log In | Sign Up
+Logged-in navigation: Home | My Reservations | Profile | Log Out
 
-## Body Sections
-- Available Storage Options
-- Display three sample storage choices:
-  - Small Locker
-  - Medium Storage Room
-  - Large Storage Room
+# Storage Categories
+- Small Locker — documents, bags, and small boxes — ₱500/month
+- Medium Storage Room — student belongings and household items — ₱1,500/month
+- Large Storage Room — furniture and small business inventory — ₱3,000/month
 
-Each card will show:
-- Storage image
-- Size
-- Price
-- Location
-- Availability
-- View Details button
-
-## How It Works
-- Choose a storage space
-- Create an account
-- Submit a reservation request
-- Wait for confirmation
-- Why Choose SaveSpace
-- Local service for Palawan residents
-- Affordable storage options
-- Simple reservation process
-- Safe and organised storage
-- Flexible storage duration
-
-## Call-to-Action Section
-Need more room at home or for your business?
-Button:
-Create an Account → Registration Page
-Footer
-
-SaveSpace logo and short description
-- Quick links
-- Contact number
-- Email address
-- Facebook page
-- Terms & Conditions/Refund Policy
-
-## 2. Registration Page
-The registration page allows new users to create an account.
-
-Form Fields
-- Full Name
-- Email Address
-- Contact Number
-- Password
-- Confirm Password
-- Create Account button
-Additional Link
-Already have an account? Log in
-After successful registration, the user will be redirected to the Login Page.
-
-## 3. Login Page
-The login page allows registered users to access their accounts.
-
-Form Fields
-- Email Address
-- Password
-- Log In button
-- Remember Me checkbox
-- Forgot Password link
-Additional Link
-Don't have an account? Register
-After logging in, the user will be redirected to the Homepage or User Dashboard.
-
-## 4. Homepage / User Dashboard
-The homepage will only be available after the user logs in.
-
-## Header
-SaveSpace logo
-Dashboard
-Browse Spaces
-My Reservations
-Profile
-Log Out button
-
-## Dashboard Content
-Welcome Message
-Welcome to SaveSpace, User!
-Quick Actions
-Browse Storage Spaces
-Make a Reservation
-View My Reservations
-Update Profile
-
-## My Reservation Section
-The user can see:
-Selected storage type
-Location
-Reservation date
-Duration
-Total estimated price
-Reservation status
-
-Possible reservation statuses:
+# Reservation Statuses
 - Pending
 - Confirmed
 - Completed
 - Cancelled
-  
-## 5. Storage Spaces Page
-This page displays the available storage options.
 
-### Storage Categories
-- Small Locker
-Suitable for documents, bags, and small boxes
-Example price: ₱500 per month
-- Medium Storage Room
-Suitable for student belongings and household items
-Example price: ₱1,500 per month
-- Large Storage Room
-Suitable for furniture and small business inventory
-Example price: ₱3,000 per month
+# Current Limitations
+This is a frontend-only prototype for a Web Systems class project.
+- No backend or database — forms do not submit or save data.
+- Login and registration do not authenticate real users.
+- The logged-in pages show sample data to demonstrate the intended layout.
 
-Each storage card will include:
-- Image
-- Name
-- Description
-- Size
-- Monthly price
-- Availability
-- Reserve button
-
-## Tools and Technologies
+# Tools and Technologies
 - HTML
 - CSS
-- JavaScript
+- A small amount of JavaScript (one line, used only to toggle the mobile navigation menu open/closed)
 - Visual Studio Code
 - GitHub
-
-Optional:
-Bootstrap for faster styling
-Local Storage for simple login and reservation data
