@@ -4,12 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SaveSpace - Home</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='rgb(201,125,125)'/%3E%3Ctext x='50' y='68' font-size='60' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="images/savespace-logo.svg">
 <style>
 body{font-family:Arial,sans-serif;margin:0;background-color:rgb(255,251,248);color:rgb(70,55,55);line-height:1.6}
 header{background-color:rgb(255,244,235);padding:14px 20px;border-bottom:2px solid rgb(240,215,200)}
 .header-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap}
 .logo-block h1{margin:0;font-size:30px;color:rgb(201,125,125)}
+.logo-block{display:flex;align-items:center;gap:10px}
+.logo-img{width:44px;height:44px}
+.footer-logo{width:28px;height:28px}
 .logo-block a{text-decoration:none}
 .log-title{margin-top:20px}
 .logo-block .save{color:rgb(201,125,125)}
@@ -33,13 +36,16 @@ h3{color:rgb(150,90,90);margin-top:0}
 .about-content img{width:280px;height:190px;object-fit:cover;border-radius:10px}
 .about-content div{flex:1}
 .storage-list{display:flex;flex-wrap:nowrap;gap:20px}
-.storage-list article{flex:1;padding:15px;border:1px solid rgb(240,215,200);border-radius:10px;background-color:white}
+.storage-list article{flex:1;display:flex;flex-direction:column;padding:14px;border:2px solid rgb(240,215,200);border-radius:10px;background-color:white}
 .storage-list article.featured{border:2px solid rgb(201,125,125)}
-.ribbon{margin:0 0 8px 0;font-size:12px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;color:rgb(201,125,125)}
-.storage-image{width:100%;height:160px;object-fit:cover;border-radius:6px;transition:transform .3s}
+.storage-list article.featured .ribbon{color:rgb(201,125,125)}
+.ribbon{margin:0 0 8px 0;color:rgb(150,110,110);font-size:12px;font-weight:bold;letter-spacing:1px;text-transform:uppercase}
+.storage-image{width:100%;height:160px;object-fit:cover;border-radius:6px;margin-bottom:10px;transition:transform .3s}
 .storage-image:hover{transform:scale(1.05)}
-.storage-list ul{padding-left:0;list-style:none}
+.storage-list ul{padding-left:0;list-style:none;margin-bottom:0}
+.storage-list .btn{margin-top:auto;text-align:center}
 .storage-list li{margin-bottom:6px}
+.storage-list p{margin-top:0}
 .btn{display:inline-block;margin-top:10px;padding:10px 22px;background-color:rgb(201,125,125);color:white;text-decoration:none;border-radius:6px;transition:background-color .3s;border:none;font-size:16px;font-family:Arial,sans-serif;cursor:pointer}
 .btn:hover{background-color:rgb(170,100,100)}
 .btn.small{padding:5px 12px;font-size:13px;margin-top:0}
@@ -86,10 +92,11 @@ tbody tr:hover{background-color:rgb(255,244,235)}
 .tile p{margin:0}
 .tile .num{font-size:30px;font-weight:bold;color:rgb(201,125,125)}
 .row-actions{display:flex;gap:6px}
+.legal ol li{margin-bottom:10px}
+.legal h3{margin-top:20px}
 footer{background-color:rgb(255,244,235);border-top:2px solid rgb(240,215,200);padding:18px 20px;margin-top:30px}
 .footer-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
 .footer-brand{display:flex;align-items:center;gap:8px;font-weight:bold;color:rgb(150,90,90)}
-.footer-mark{display:inline-block;width:28px;height:28px;line-height:28px;text-align:center;background-color:rgb(201,125,125);color:white;border-radius:6px}
 .footer-links a,.footer-legal a{margin-right:16px;color:rgb(150,90,90);text-decoration:none;font-size:14px}
 .footer-links a:hover,.footer-legal a:hover{color:rgb(201,125,125)}
 .footer-legal a:last-child{margin-right:0}
@@ -113,8 +120,11 @@ nav a{display:block;margin:0;padding:10px 0;border-bottom:1px solid rgb(240,215,
 <header>
 <div class="header-inner">
 <div class="logo-block">
+<img class="logo-img" src="images/savespace-logo.svg" alt="SaveSpace logo">
+<div>
 <h1><a href="index.html"><span class="save">Save</span><span class="space">Space</span></a></h1>
 <p class="tagline">Your Self-Storage Facility</p>
+</div>
 </div>
 <button class="hamburger" onclick="document.getElementById('main-nav').classList.toggle('nav-open')">&#9776;</button>
 <nav id="main-nav">
@@ -147,6 +157,7 @@ nav a{display:block;margin:0;padding:10px 0;border-bottom:1px solid rgb(240,215,
 <h2>Storage Spaces</h2>
 <div class="storage-list">
 <article>
+<p class="ribbon">Starter Size</p>
 <img class="storage-image" src="images/savespace-small-locker.png" alt="Small storage locker">
 <h3>Small Locker</h3>
 <p>Good for boxes, bags and seasonal items.</p>
@@ -170,6 +181,7 @@ nav a{display:block;margin:0;padding:10px 0;border-bottom:1px solid rgb(240,215,
 <a class="btn" href="register.html">Reserve</a>
 </article>
 <article>
+<p class="ribbon">Biggest Size</p>
 <img class="storage-image" src="images/savespace-large-storage-room.png" alt="Large storage room">
 <h3>Large Room</h3>
 <p>Room for a whole house move or bulk inventory.</p>
@@ -206,14 +218,14 @@ nav a{display:block;margin:0;padding:10px 0;border-bottom:1px solid rgb(240,215,
 </main>
 <footer>
 <div class="footer-inner">
-<div class="footer-brand"><span class="footer-mark">S</span><span>SaveSpace</span></div>
+<div class="footer-brand"><img class="footer-logo" src="images/savespace-logo.svg" alt="SaveSpace logo"><span>SaveSpace</span></div>
 <div class="footer-links">
 <a href="mailto:savespace@gmail.com">&#9993; savespace@gmail.com</a>
 <a href="tel:09950939228">&#9743; 0995 093 9228</a>
 </div>
 <div class="footer-legal">
-<a href="#">Terms</a>
-<a href="#">Privacy</a>
+<a href="terms.html">Terms</a>
+<a href="privacy.html">Privacy</a>
 </div>
 </div>
 <p class="footer-copyright">&copy; 2026 SaveSpace. All rights reserved.</p>
