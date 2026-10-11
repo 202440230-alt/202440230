@@ -90,6 +90,7 @@ tbody tr:hover{background-color:rgb(255,244,235)}
 .stages li{flex:1;text-align:center;padding:8px 4px;border:1px solid rgb(240,215,200);border-radius:6px;font-size:14px;color:rgb(160,130,130);background-color:white}
 .stages li.done{background-color:rgb(255,244,235);color:rgb(150,90,90);border-color:rgb(216,158,158)}
 .stages li.current{background-color:rgb(201,125,125);color:white;font-weight:bold}
+.rental{border-top:1px solid rgb(240,215,200);padding-top:15px;margin-top:15px}
 .tracking{display:flex;gap:20px;align-items:flex-start}
 .tracking figure{margin:0;width:200px}
 .tracking figure img{width:200px;height:150px;object-fit:cover;border-radius:8px}
@@ -155,11 +156,14 @@ nav a{display:block;margin:0;padding:10px 0;border-bottom:1px solid rgb(240,215,
 <li>Name: Aieranwin Varias</li>
 <li>Email: aieranvarias13@gmail.com</li>
 <li>Contact: 0945 445 0181</li>
-<li>Member Since: August 2026</li>
+<li>Member Since: January 2026</li>
 </ul>
 </section>
 <section class="content-block info-box">
 <h2>Rental Tracking</h2>
+<p>You have 2 active rentals.</p>
+<article class="rental">
+<h3>Unit A-07 &middot; Small Locker</h3>
 <ol class="stages">
 <li class="done">Requested</li>
 <li class="done">Confirmed</li>
@@ -169,7 +173,7 @@ nav a{display:block;margin:0;padding:10px 0;border-bottom:1px solid rgb(240,215,
 <div class="tracking">
 <figure>
 <img src="images/savespace-small-locker.png" alt="Your rented unit A-07">
-<figcaption>Unit A-07 &middot; Small Locker</figcaption>
+<figcaption>Unit A-07</figcaption>
 </figure>
 <dl>
 <dt>Rental Status</dt>
@@ -184,20 +188,66 @@ nav a{display:block;margin:0;padding:10px 0;border-bottom:1px solid rgb(240,215,
 <dd>November 15, 2026</dd>
 </dl>
 </div>
-<h3 class="log-title">Rental Log</h3>
+</article>
+<article class="rental">
+<h3>Unit B-10 &middot; Medium Room</h3>
+<ol class="stages">
+<li class="done">Requested</li>
+<li class="done">Confirmed</li>
+<li class="done">Moved In</li>
+<li class="done current">Active</li>
+</ol>
+<div class="tracking">
+<figure>
+<img src="images/savespace-medium-storage-room.png" alt="Your rented unit B-10">
+<figcaption>Unit B-10</figcaption>
+</figure>
+<dl>
+<dt>Rental Status</dt>
+<dd><mark>Active</mark></dd>
+<dt>Payment Status</dt>
+<dd><mark>Paid Up</mark></dd>
+<dt>Monthly Rent</dt>
+<dd>&#8369;1,500</dd>
+<dt>Rental Started</dt>
+<dd>September 1, 2026</dd>
+<dt>Next Due Date</dt>
+<dd>November 1, 2026</dd>
+</dl>
+</div>
+</article>
+</section>
+<section class="content-block info-box">
+<h2>Payment Log</h2>
 <div class="table-wrap">
 <table>
 <thead>
-<tr><th>Date</th><th>Event</th><th>Amount</th><th>Status</th></tr>
+<tr><th>Date</th><th>Unit</th><th>Event</th><th>Amount</th><th>Status</th></tr>
 </thead>
 <tbody>
-<tr><td>Oct 15, 2026</td><td>Rent payment</td><td>&#8369;500</td><td><mark>Paid</mark></td></tr>
-<tr><td>Sep 15, 2026</td><td>Rent payment</td><td>&#8369;500</td><td><mark>Paid</mark></td></tr>
-<tr><td>Aug 15, 2026</td><td>Moved in to A-07</td><td>&#8369;500</td><td><mark>Paid</mark></td></tr>
+<tr><td>Oct 15, 2026</td><td>A-07</td><td>Rent payment</td><td>&#8369;500</td><td><mark>Paid</mark></td></tr>
+<tr><td>Oct 1, 2026</td><td>B-10</td><td>Rent payment</td><td>&#8369;1,500</td><td><mark>Paid</mark></td></tr>
+<tr><td>Sep 15, 2026</td><td>A-07</td><td>Rent payment</td><td>&#8369;500</td><td><mark>Paid</mark></td></tr>
+<tr><td>Sep 1, 2026</td><td>B-10</td><td>Moved in</td><td>&#8369;1,500</td><td><mark>Paid</mark></td></tr>
+<tr><td>Aug 15, 2026</td><td>A-07</td><td>Moved in</td><td>&#8369;500</td><td><mark>Paid</mark></td></tr>
 </tbody>
 </table>
 </div>
 <p class="demo-note">Sample data for the demo.</p>
+</section>
+<section class="content-block info-box">
+<h2>Rental History</h2>
+<p>Rentals that have ended are moved here, so Rental Tracking only shows your active units.</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Unit</th><th>Size</th><th>Rental Period</th><th>Total Paid</th><th>Status</th></tr>
+</thead>
+<tbody>
+<tr><td>A-05</td><td>Small Locker</td><td>Feb 1, 2026 to Jul 31, 2026</td><td>&#8369;3,000</td><td><mark class="completed">Completed</mark></td></tr>
+</tbody>
+</table>
+</div>
 </section>
 <section class="content-block info-box">
 <h2>Update Your Details</h2>
