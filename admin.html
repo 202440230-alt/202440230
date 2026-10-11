@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SaveSpace - Admin</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='rgb(201,125,125)'/%3E%3Ctext x='50' y='68' font-size='60' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<style>
+body{font-family:Arial,sans-serif;margin:0;background-color:rgb(255,251,248);color:rgb(70,55,55);line-height:1.6}
+header{background-color:rgb(255,244,235);padding:14px 20px;border-bottom:2px solid rgb(240,215,200)}
+.header-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.logo-block h1{margin:0;font-size:30px;color:rgb(201,125,125)}
+.logo-block a{text-decoration:none}
+.log-title{margin-top:20px}
+.logo-block .save{color:rgb(201,125,125)}
+.logo-block .space{color:rgb(150,90,90)}
+.tagline{margin:0;font-size:13px;font-style:italic;color:rgb(150,110,110);letter-spacing:1px}
+nav a{margin-right:22px;padding-bottom:4px;color:rgb(150,90,90);text-decoration:none;font-weight:bold;letter-spacing:.5px;text-transform:uppercase;font-size:14px;border-bottom:2px solid transparent;transition:border-color .3s,color .3s}
+nav a:last-child{margin-right:0}
+nav a:hover{color:rgb(201,125,125);border-bottom-color:rgb(216,158,158)}
+nav a.active-link{color:rgb(201,125,125);border-bottom-color:rgb(201,125,125)}
+.hamburger{display:none;background-color:rgb(201,125,125);color:white;border:none;border-radius:6px;font-size:22px;padding:4px 12px;cursor:pointer}
+main{max-width:900px;margin:0 auto;padding:20px}
+h2{color:rgb(216,158,158);margin-top:0}
+h3{color:rgb(150,90,90);margin-top:0}
+.hero{display:flex;align-items:center;gap:30px;background-color:rgb(255,244,235);border:1px solid rgb(240,215,200);border-radius:10px;padding:25px;margin-bottom:25px}
+.hero-text{flex:1}
+.hero-text h2{font-size:28px}
+.hero-photo{width:380px;height:260px;object-fit:cover;object-position:left;border-radius:10px}
+.content-block{margin-bottom:25px}
+.info-box{background-color:white;border:1px solid rgb(240,215,200);border-radius:10px;padding:20px}
+.about-content{display:flex;gap:20px;align-items:center}
+.about-content img{width:280px;height:190px;object-fit:cover;border-radius:10px}
+.about-content div{flex:1}
+.storage-list{display:flex;flex-wrap:nowrap;gap:20px}
+.storage-list article{flex:1;padding:15px;border:1px solid rgb(240,215,200);border-radius:10px;background-color:white}
+.storage-list article.featured{border:2px solid rgb(201,125,125)}
+.ribbon{margin:0 0 8px 0;font-size:12px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;color:rgb(201,125,125)}
+.storage-image{width:100%;height:160px;object-fit:cover;border-radius:6px;transition:transform .3s}
+.storage-image:hover{transform:scale(1.05)}
+.storage-list ul{padding-left:0;list-style:none}
+.storage-list li{margin-bottom:6px}
+.btn{display:inline-block;margin-top:10px;padding:10px 22px;background-color:rgb(201,125,125);color:white;text-decoration:none;border-radius:6px;transition:background-color .3s;border:none;font-size:16px;font-family:Arial,sans-serif;cursor:pointer}
+.btn:hover{background-color:rgb(170,100,100)}
+.btn.small{padding:5px 12px;font-size:13px;margin-top:0}
+.btn.muted{background-color:rgb(190,170,165)}
+mark{background-color:rgb(200,225,195);color:rgb(50,80,45);padding:2px 10px;border-radius:10px;font-weight:bold}
+mark.limited,mark.pending{background-color:rgb(250,225,170);color:rgb(120,80,20)}
+mark.completed{background-color:rgb(205,220,245);color:rgb(40,70,120)}
+mark.cancelled{background-color:rgb(240,205,205);color:rgb(130,50,50)}
+ol.steps{list-style:none;padding:0;counter-reset:step}
+ol.steps li{counter-increment:step;border:1px solid rgb(240,215,200);border-radius:8px;background-color:white;padding:12px 15px;margin-bottom:10px}
+ol.steps li::before{content:counter(step);display:inline-block;width:28px;height:28px;line-height:28px;text-align:center;background-color:rgb(216,158,158);color:white;border-radius:50%;font-weight:bold;margin-right:12px}
+ul.benefits{display:flex;flex-wrap:wrap;gap:10px;padding:0;list-style:none}
+ul.benefits li{background-color:rgb(255,244,235);border:1px solid rgb(240,215,200);border-radius:20px;padding:6px 16px}
+.cta{text-align:center;background-color:rgb(255,244,235);border-radius:10px;padding:25px}
+form label{display:block;margin-top:12px;font-weight:bold;color:rgb(150,90,90)}
+form input[type=text],form input[type=email],form input[type=password],form input[type=tel],form input[type=date],form select,form textarea{display:block;width:100%;max-width:100%;padding:9px;margin-top:5px;border:1px solid rgb(225,200,190);border-radius:6px;font-size:15px;font-family:Arial,sans-serif;box-sizing:border-box}
+form input:focus,form select:focus,form textarea:focus{border-color:rgb(201,125,125);outline:none;background-color:rgb(255,250,246)}
+fieldset{border:1px solid rgb(225,200,190);border-radius:8px;margin-top:15px;padding:5px 15px 15px}
+legend{color:rgb(201,125,125);font-weight:bold;padding:0 8px}
+.remember-row{display:flex;align-items:center;gap:8px;margin-top:12px}
+.remember-row label{margin-top:0;font-weight:normal}
+.form-card{max-width:500px;margin:0 auto}
+.demo-note{font-size:13px;color:rgb(150,110,110);font-style:italic;margin-top:8px}
+.link-row{display:flex;justify-content:space-between;margin-top:15px;font-size:14px}
+a{color:rgb(190,110,110)}
+.action-list{display:flex;gap:15px}
+.action-card{flex:1;background-color:white;border:1px solid rgb(240,215,200);border-radius:10px;padding:15px;text-align:center}
+.action-card p{margin:0 0 5px 0}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;background-color:white}
+caption{text-align:left;font-weight:bold;color:rgb(150,90,90);padding-bottom:8px}
+th{background-color:rgb(216,158,158);color:white;text-align:left;padding:10px}
+td{padding:10px;border-bottom:1px solid rgb(240,215,200)}
+tbody tr:hover{background-color:rgb(255,244,235)}
+.tracking{display:flex;gap:20px;align-items:flex-start}
+.tracking figure{margin:0;width:200px}
+.tracking figure img{width:200px;height:150px;object-fit:cover;border-radius:8px}
+.tracking figcaption{font-size:13px;color:rgb(150,110,110);text-align:center;margin-top:5px}
+.tracking dl{flex:1;margin:0}
+.tracking dt{font-weight:bold;color:rgb(150,90,90);margin-top:8px}
+.tracking dd{margin:0}
+.tiles{display:flex;gap:15px;flex-wrap:wrap}
+.tile{flex:1;min-width:130px;background-color:white;border:1px solid rgb(240,215,200);border-radius:10px;padding:15px;text-align:center}
+.tile p{margin:0}
+.tile .num{font-size:30px;font-weight:bold;color:rgb(201,125,125)}
+.row-actions{display:flex;gap:6px}
+footer{background-color:rgb(255,244,235);border-top:2px solid rgb(240,215,200);padding:18px 20px;margin-top:30px}
+.footer-inner{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-brand{display:flex;align-items:center;gap:8px;font-weight:bold;color:rgb(150,90,90)}
+.footer-mark{display:inline-block;width:28px;height:28px;line-height:28px;text-align:center;background-color:rgb(201,125,125);color:white;border-radius:6px}
+.footer-links a,.footer-legal a{margin-right:16px;color:rgb(150,90,90);text-decoration:none;font-size:14px}
+.footer-links a:hover,.footer-legal a:hover{color:rgb(201,125,125)}
+.footer-legal a:last-child{margin-right:0}
+.footer-copyright{max-width:900px;margin:10px auto 0;font-size:12px;color:rgb(160,130,130)}
+@media (max-width:700px){
+.hamburger{display:inline-block}
+nav{display:none;width:100%;margin-top:10px}
+nav.nav-open{display:block}
+nav a{display:block;margin:0;padding:10px 0;border-bottom:1px solid rgb(240,215,200)}
+.hero,.about-content,.tracking{flex-direction:column}
+.hero-photo,.about-content img{width:100%}
+.storage-list{overflow-x:auto;padding-bottom:10px}
+.storage-list article{flex:0 0 80%}
+.action-list{flex-direction:column}
+.link-row{flex-direction:column;gap:6px}
+.footer-inner{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="header-inner">
+<div class="logo-block">
+<h1><a href="admin.html"><span class="save">Save</span><span class="space">Space</span></a></h1>
+<p class="tagline">Your Self-Storage Facility</p>
+</div>
+<button class="hamburger" onclick="document.getElementById('main-nav').classList.toggle('nav-open')">&#9776;</button>
+<nav id="main-nav">
+<a href="admin.html" class="active-link">Dashboard</a>
+<a href="admin.html#requests">Requests</a>
+<a href="admin.html#units">Units</a>
+<a href="index.html">Log Out</a>
+</nav>
+</div>
+</header>
+<main>
+<section class="content-block">
+<h2>Owner Dashboard</h2>
+<p class="demo-note">Demo page &mdash; the numbers and buttons are samples, nothing is saved yet.</p>
+<div class="tiles">
+<div class="tile"><p class="num">12</p><p>Total Units</p></div>
+<div class="tile"><p class="num">8</p><p>Occupied</p></div>
+<div class="tile"><p class="num">3</p><p>Pending Requests</p></div>
+<div class="tile"><p class="num">&#8369;9,500</p><p>Monthly Income</p></div>
+</div>
+</section>
+<section id="requests" class="content-block">
+<h2>Reservation Requests</h2>
+<div class="table-wrap">
+<table>
+<caption>Requests waiting for the owner</caption>
+<thead>
+<tr><th>Customer</th><th>Unit</th><th>Move-in</th><th>Status</th><th>Action</th></tr>
+</thead>
+<tbody>
+<tr><td>Juan Dela Cruz</td><td>B-12</td><td>Nov 1, 2026</td><td><mark class="pending">Pending</mark></td><td><div class="row-actions"><a class="btn small" href="#requests">Confirm</a><a class="btn small muted" href="#requests">Cancel</a></div></td></tr>
+<tr><td>Maria Santos</td><td>A-04</td><td>Nov 5, 2026</td><td><mark class="pending">Pending</mark></td><td><div class="row-actions"><a class="btn small" href="#requests">Confirm</a><a class="btn small muted" href="#requests">Cancel</a></div></td></tr>
+<tr><td>Ramon Reyes</td><td>C-21</td><td>Oct 20, 2026</td><td><mark>Confirmed</mark></td><td>&mdash;</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="units" class="content-block">
+<h2>Storage Units</h2>
+<div class="table-wrap">
+<table>
+<caption>All units in the facility</caption>
+<thead>
+<tr><th>Unit</th><th>Size</th><th>Rate</th><th>Availability</th></tr>
+</thead>
+<tbody>
+<tr><td>A-07</td><td>Small Locker</td><td>&#8369;500</td><td><mark class="cancelled">Occupied</mark></td></tr>
+<tr><td>A-08</td><td>Small Locker</td><td>&#8369;500</td><td><mark>Available</mark></td></tr>
+<tr><td>B-12</td><td>Medium Room</td><td>&#8369;1,500</td><td><mark class="pending">Reserved</mark></td></tr>
+<tr><td>C-21</td><td>Large Room</td><td>&#8369;3,000</td><td><mark class="limited">Limited</mark></td></tr>
+</tbody>
+</table>
+</div>
+</section>
+</main>
+<footer>
+<div class="footer-inner">
+<div class="footer-brand"><span class="footer-mark">S</span><span>SaveSpace</span></div>
+<div class="footer-links">
+<a href="mailto:savespace@gmail.com">&#9993; savespace@gmail.com</a>
+<a href="tel:09950939228">&#9743; 0995 093 9228</a>
+</div>
+<div class="footer-legal">
+<a href="#">Terms</a>
+<a href="#">Privacy</a>
+</div>
+</div>
+<p class="footer-copyright">&copy; 2026 SaveSpace. All rights reserved.</p>
+</footer>
+</body>
+</html>
