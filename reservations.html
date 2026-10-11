@@ -35,7 +35,7 @@ h3{color:rgb(150,90,90);margin-top:0}
 .about-content{display:flex;gap:20px;align-items:center}
 .about-content img{width:280px;height:190px;object-fit:cover;border-radius:10px}
 .about-content div{flex:1}
-.storage-list{display:flex;flex-wrap:nowrap;gap:20px}
+.storage-list{display:flex;flex-wrap:nowrap;gap:20px;align-items:flex-start}
 .storage-list article{flex:1;display:flex;flex-direction:column;padding:14px;border:2px solid rgb(240,215,200);border-radius:10px;background-color:white}
 .storage-list article.featured{border:2px solid rgb(201,125,125)}
 .storage-list article.featured .ribbon{color:rgb(201,125,125)}
@@ -43,11 +43,17 @@ h3{color:rgb(150,90,90);margin-top:0}
 .storage-image{width:100%;height:160px;object-fit:cover;border-radius:6px;margin-bottom:10px;transition:transform .3s}
 .storage-image:hover{transform:scale(1.05)}
 .storage-list ul{padding-left:0;list-style:none;margin-bottom:0}
-.storage-list .btn{margin-top:auto;text-align:center}
+.storage-list .btn{text-align:center}
 .storage-list li{margin-bottom:6px}
 .storage-list p{margin-top:0}
 .btn{display:inline-block;margin-top:10px;padding:10px 22px;background-color:rgb(201,125,125);color:white;text-decoration:none;border-radius:6px;transition:background-color .3s;border:none;font-size:16px;font-family:Arial,sans-serif;cursor:pointer}
 .btn:hover{background-color:rgb(170,100,100)}
+.card-actions{display:flex;gap:8px;margin-top:auto}
+.card-actions .btn{flex:1;margin-top:10px}
+.info-btn{margin-top:10px;width:44px;background-color:white;color:rgb(201,125,125);border:2px solid rgb(201,125,125);border-radius:6px;font-size:20px;cursor:pointer}
+.info-btn:hover{background-color:rgb(255,244,235)}
+.storage-list ul.more-info{display:none;margin:12px 0 0 0;padding:10px 12px;background-color:rgb(255,244,235);border-radius:6px;font-size:14px}
+.storage-list ul.more-info.show{display:block}
 .btn.small{padding:5px 12px;font-size:13px;margin-top:0}
 .btn.muted{background-color:rgb(190,170,165)}
 mark{background-color:rgb(200,225,195);color:rgb(50,80,45);padding:2px 10px;border-radius:10px;font-weight:bold}
@@ -91,7 +97,8 @@ tbody tr:hover{background-color:rgb(255,244,235)}
 .tile{flex:1;min-width:130px;background-color:white;border:1px solid rgb(240,215,200);border-radius:10px;padding:15px;text-align:center}
 .tile p{margin:0}
 .tile .num{font-size:30px;font-weight:bold;color:rgb(201,125,125)}
-.row-actions{display:flex;gap:6px}
+.row-actions{display:flex;gap:6px;align-items:center}
+.row-actions select{padding:5px;border:1px solid rgb(225,200,190);border-radius:6px;font-family:Arial,sans-serif}
 .legal ol li{margin-bottom:10px}
 .legal h3{margin-top:20px}
 footer{background-color:rgb(255,244,235);border-top:2px solid rgb(240,215,200);padding:18px 20px;margin-top:30px}
@@ -147,7 +154,7 @@ nav a{display:block;margin:0;padding:10px 0;border-bottom:1px solid rgb(240,215,
 <tbody>
 <tr><td>B-12</td><td>Medium Room</td><td>Nov 1, 2026</td><td>&#8369;1,500</td><td><mark class="pending">Pending</mark></td></tr>
 <tr><td>A-07</td><td>Small Locker</td><td>Aug 15, 2026</td><td>&#8369;500</td><td><mark>Confirmed</mark></td></tr>
-<tr><td>A-03</td><td>Small Locker</td><td>Feb 1, 2026</td><td>&#8369;500</td><td><mark class="completed">Completed</mark></td></tr>
+<tr><td>A-05</td><td>Small Locker</td><td>Feb 1, 2026</td><td>&#8369;500</td><td><mark class="completed">Completed</mark></td></tr>
 <tr><td>C-21</td><td>Large Room</td><td>Jan 10, 2026</td><td>&#8369;3,000</td><td><mark class="cancelled">Cancelled</mark></td></tr>
 </tbody>
 </table>

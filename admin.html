@@ -145,10 +145,10 @@ nav a{display:block;margin:0;padding:10px 0;border-bottom:1px solid rgb(240,215,
 <h2>Owner Dashboard</h2>
 <p class="demo-note">Demo page. The numbers and buttons are samples, nothing is saved yet.</p>
 <div class="tiles">
-<div class="tile"><p class="num">12</p><p>Total Units</p></div>
-<div class="tile"><p class="num">8</p><p>Occupied</p></div>
-<div class="tile"><p class="num">3</p><p>Pending Requests</p></div>
-<div class="tile"><p class="num">&#8369;9,500</p><p>Monthly Income</p></div>
+<div class="tile"><p class="num">9</p><p>Total Units</p></div>
+<div class="tile"><p class="num">5</p><p>Occupied</p></div>
+<div class="tile"><p class="num">2</p><p>Pending Requests</p></div>
+<div class="tile"><p class="num">&#8369;8,500</p><p>Monthly Income</p></div>
 </div>
 </section>
 <section id="requests" class="content-block">
@@ -161,8 +161,8 @@ nav a{display:block;margin:0;padding:10px 0;border-bottom:1px solid rgb(240,215,
 </thead>
 <tbody>
 <tr><td>Aieranwin Varias</td><td>B-12</td><td>Nov 1, 2026</td><td><mark class="pending">Pending</mark></td><td><div class="row-actions"><a class="btn small" href="#requests">Confirm</a><a class="btn small muted" href="#requests">Cancel</a></div></td></tr>
-<tr><td>Maria Santos</td><td>A-04</td><td>Nov 5, 2026</td><td><mark class="pending">Pending</mark></td><td><div class="row-actions"><a class="btn small" href="#requests">Confirm</a><a class="btn small muted" href="#requests">Cancel</a></div></td></tr>
-<tr><td>Ramon Reyes</td><td>C-21</td><td>Oct 20, 2026</td><td><mark>Confirmed</mark></td><td>None</td></tr>
+<tr><td>Maria Santos</td><td>A-06</td><td>Nov 5, 2026</td><td><mark class="pending">Pending</mark></td><td><div class="row-actions"><a class="btn small" href="#requests">Confirm</a><a class="btn small muted" href="#requests">Cancel</a></div></td></tr>
+<tr><td>Ramon Reyes</td><td>C-20</td><td>Oct 20, 2026</td><td><mark>Confirmed</mark></td><td>None</td></tr>
 </tbody>
 </table>
 </div>
@@ -171,15 +171,20 @@ nav a{display:block;margin:0;padding:10px 0;border-bottom:1px solid rgb(240,215,
 <h2>Storage Units</h2>
 <div class="table-wrap">
 <table>
-<caption>All units in the facility</caption>
+<caption>All 9 units in the facility (3 small, 3 medium, 3 large)</caption>
 <thead>
 <tr><th>Unit</th><th>Size</th><th>Rate</th><th>Availability</th><th>Change</th></tr>
 </thead>
 <tbody>
+<tr><td>A-05</td><td>Small Locker</td><td>&#8369;500</td><td><mark class="cancelled">Occupied</mark></td><td><div class="row-actions"><select name="status-A-05" aria-label="Set availability for A-05"><option value="available">Available</option><option value="limited">Limited</option><option value="reserved">Reserved</option><option value="occupied" selected>Occupied</option></select><a class="btn small" href="#units">Update</a></div></td></tr>
+<tr><td>A-06</td><td>Small Locker</td><td>&#8369;500</td><td><mark>Available</mark></td><td><div class="row-actions"><select name="status-A-06" aria-label="Set availability for A-06"><option value="available" selected>Available</option><option value="limited">Limited</option><option value="reserved">Reserved</option><option value="occupied">Occupied</option></select><a class="btn small" href="#units">Update</a></div></td></tr>
 <tr><td>A-07</td><td>Small Locker</td><td>&#8369;500</td><td><mark class="cancelled">Occupied</mark></td><td><div class="row-actions"><select name="status-A-07" aria-label="Set availability for A-07"><option value="available">Available</option><option value="limited">Limited</option><option value="reserved">Reserved</option><option value="occupied" selected>Occupied</option></select><a class="btn small" href="#units">Update</a></div></td></tr>
-<tr><td>A-08</td><td>Small Locker</td><td>&#8369;500</td><td><mark>Available</mark></td><td><div class="row-actions"><select name="status-A-08" aria-label="Set availability for A-08"><option value="available" selected>Available</option><option value="limited">Limited</option><option value="reserved">Reserved</option><option value="occupied">Occupied</option></select><a class="btn small" href="#units">Update</a></div></td></tr>
-<tr><td>B-12</td><td>Medium Room</td><td>&#8369;1,500</td><td><mark class="pending">Reserved</mark></td><td><div class="row-actions"><select name="status-B-12" aria-label="Set availability for B-12"><option value="available">Available</option><option value="limited">Limited</option><option value="reserved" selected>Reserved</option><option value="occupied">Occupied</option></select><a class="btn small" href="#units">Update</a></div></td></tr>
-<tr><td>C-21</td><td>Large Room</td><td>&#8369;3,000</td><td><mark class="limited">Limited</mark></td><td><div class="row-actions"><select name="status-C-21" aria-label="Set availability for C-21"><option value="available">Available</option><option value="limited" selected>Limited</option><option value="reserved">Reserved</option><option value="occupied">Occupied</option></select><a class="btn small" href="#units">Update</a></div></td></tr>
+<tr><td>B-10</td><td>Medium Room</td><td>&#8369;1,500</td><td><mark class="cancelled">Occupied</mark></td><td><div class="row-actions"><select name="status-B-10" aria-label="Set availability for B-10"><option value="available">Available</option><option value="limited">Limited</option><option value="reserved">Reserved</option><option value="occupied" selected>Occupied</option></select><a class="btn small" href="#units">Update</a></div></td></tr>
+<tr><td>B-11</td><td>Medium Room</td><td>&#8369;1,500</td><td><mark>Available</mark></td><td><div class="row-actions"><select name="status-B-11" aria-label="Set availability for B-11"><option value="available" selected>Available</option><option value="limited">Limited</option><option value="reserved">Reserved</option><option value="occupied">Occupied</option></select><a class="btn small" href="#units">Update</a></div></td></tr>
+<tr><td>B-12</td><td>Medium Room</td><td>&#8369;1,500</td><td><mark>Available</mark></td><td><div class="row-actions"><select name="status-B-12" aria-label="Set availability for B-12"><option value="available" selected>Available</option><option value="limited">Limited</option><option value="reserved">Reserved</option><option value="occupied">Occupied</option></select><a class="btn small" href="#units">Update</a></div></td></tr>
+<tr><td>C-19</td><td>Large Room</td><td>&#8369;3,000</td><td><mark class="cancelled">Occupied</mark></td><td><div class="row-actions"><select name="status-C-19" aria-label="Set availability for C-19"><option value="available">Available</option><option value="limited">Limited</option><option value="reserved">Reserved</option><option value="occupied" selected>Occupied</option></select><a class="btn small" href="#units">Update</a></div></td></tr>
+<tr><td>C-20</td><td>Large Room</td><td>&#8369;3,000</td><td><mark class="cancelled">Occupied</mark></td><td><div class="row-actions"><select name="status-C-20" aria-label="Set availability for C-20"><option value="available">Available</option><option value="limited">Limited</option><option value="reserved">Reserved</option><option value="occupied" selected>Occupied</option></select><a class="btn small" href="#units">Update</a></div></td></tr>
+<tr><td>C-21</td><td>Large Room</td><td>&#8369;3,000</td><td><mark>Available</mark></td><td><div class="row-actions"><select name="status-C-21" aria-label="Set availability for C-21"><option value="available" selected>Available</option><option value="limited">Limited</option><option value="reserved">Reserved</option><option value="occupied">Occupied</option></select><a class="btn small" href="#units">Update</a></div></td></tr>
 </tbody>
 </table>
 </div>
