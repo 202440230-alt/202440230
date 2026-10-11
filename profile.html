@@ -86,6 +86,10 @@ caption{text-align:left;font-weight:bold;color:rgb(150,90,90);padding-bottom:8px
 th{background-color:rgb(216,158,158);color:white;text-align:left;padding:10px}
 td{padding:10px;border-bottom:1px solid rgb(240,215,200)}
 tbody tr:hover{background-color:rgb(255,244,235)}
+.stages{display:flex;gap:8px;list-style:none;padding:0;margin:0 0 20px 0}
+.stages li{flex:1;text-align:center;padding:8px 4px;border:1px solid rgb(240,215,200);border-radius:6px;font-size:14px;color:rgb(160,130,130);background-color:white}
+.stages li.done{background-color:rgb(255,244,235);color:rgb(150,90,90);border-color:rgb(216,158,158)}
+.stages li.current{background-color:rgb(201,125,125);color:white;font-weight:bold}
 .tracking{display:flex;gap:20px;align-items:flex-start}
 .tracking figure{margin:0;width:200px}
 .tracking figure img{width:200px;height:150px;object-fit:cover;border-radius:8px}
@@ -114,6 +118,8 @@ nav{display:none;width:100%;margin-top:10px}
 nav.nav-open{display:block}
 nav a{display:block;margin:0;padding:10px 0;border-bottom:1px solid rgb(240,215,200)}
 .hero,.about-content,.tracking{flex-direction:column}
+.stages{flex-wrap:wrap}
+.stages li{flex:1 1 40%}
 .hero-photo,.about-content img{width:100%}
 .storage-list{overflow-x:auto;padding-bottom:10px}
 .storage-list article{flex:0 0 80%}
@@ -154,16 +160,26 @@ nav a{display:block;margin:0;padding:10px 0;border-bottom:1px solid rgb(240,215,
 </section>
 <section class="content-block info-box">
 <h2>Rental Tracking</h2>
+<ol class="stages">
+<li class="done">Requested</li>
+<li class="done">Confirmed</li>
+<li class="done">Moved In</li>
+<li class="done current">Active</li>
+</ol>
 <div class="tracking">
 <figure>
 <img src="images/savespace-small-locker.png" alt="Your rented unit A-07">
 <figcaption>Unit A-07 &middot; Small Locker</figcaption>
 </figure>
 <dl>
-<dt>Status</dt>
+<dt>Rental Status</dt>
 <dd><mark>Active</mark></dd>
+<dt>Payment Status</dt>
+<dd><mark>Paid Up</mark></dd>
 <dt>Monthly Rent</dt>
 <dd>&#8369;500</dd>
+<dt>Rental Started</dt>
+<dd>August 15, 2026</dd>
 <dt>Next Due Date</dt>
 <dd>November 15, 2026</dd>
 </dl>
@@ -172,12 +188,12 @@ nav a{display:block;margin:0;padding:10px 0;border-bottom:1px solid rgb(240,215,
 <div class="table-wrap">
 <table>
 <thead>
-<tr><th>Date</th><th>Event</th><th>Amount</th></tr>
+<tr><th>Date</th><th>Event</th><th>Amount</th><th>Status</th></tr>
 </thead>
 <tbody>
-<tr><td>Oct 15, 2026</td><td>Rent paid</td><td>&#8369;500</td></tr>
-<tr><td>Sep 15, 2026</td><td>Rent paid</td><td>&#8369;500</td></tr>
-<tr><td>Aug 15, 2026</td><td>Moved in to A-07</td><td>&#8369;500</td></tr>
+<tr><td>Oct 15, 2026</td><td>Rent payment</td><td>&#8369;500</td><td><mark>Paid</mark></td></tr>
+<tr><td>Sep 15, 2026</td><td>Rent payment</td><td>&#8369;500</td><td><mark>Paid</mark></td></tr>
+<tr><td>Aug 15, 2026</td><td>Moved in to A-07</td><td>&#8369;500</td><td><mark>Paid</mark></td></tr>
 </tbody>
 </table>
 </div>
