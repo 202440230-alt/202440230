@@ -35,7 +35,7 @@ h3{color:rgb(150,90,90);margin-top:0}
 .about-content{display:flex;gap:20px;align-items:center}
 .about-content img{width:280px;height:190px;object-fit:cover;border-radius:10px}
 .about-content div{flex:1}
-.storage-list{display:flex;flex-wrap:nowrap;gap:20px}
+.storage-list{display:flex;flex-wrap:nowrap;gap:20px;align-items:flex-start}
 .storage-list article{flex:1;display:flex;flex-direction:column;padding:14px;border:2px solid rgb(240,215,200);border-radius:10px;background-color:white}
 .storage-list article.featured{border:2px solid rgb(201,125,125)}
 .storage-list article.featured .ribbon{color:rgb(201,125,125)}
@@ -43,11 +43,17 @@ h3{color:rgb(150,90,90);margin-top:0}
 .storage-image{width:100%;height:160px;object-fit:cover;border-radius:6px;margin-bottom:10px;transition:transform .3s}
 .storage-image:hover{transform:scale(1.05)}
 .storage-list ul{padding-left:0;list-style:none;margin-bottom:0}
-.storage-list .btn{margin-top:auto;text-align:center}
+.storage-list .btn{text-align:center}
 .storage-list li{margin-bottom:6px}
 .storage-list p{margin-top:0}
 .btn{display:inline-block;margin-top:10px;padding:10px 22px;background-color:rgb(201,125,125);color:white;text-decoration:none;border-radius:6px;transition:background-color .3s;border:none;font-size:16px;font-family:Arial,sans-serif;cursor:pointer}
 .btn:hover{background-color:rgb(170,100,100)}
+.card-actions{display:flex;gap:8px;margin-top:auto}
+.card-actions .btn{flex:1;margin-top:10px}
+.info-btn{margin-top:10px;width:44px;background-color:white;color:rgb(201,125,125);border:2px solid rgb(201,125,125);border-radius:6px;font-size:20px;cursor:pointer}
+.info-btn:hover{background-color:rgb(255,244,235)}
+.storage-list ul.more-info{display:none;margin:12px 0 0 0;padding:10px 12px;background-color:rgb(255,244,235);border-radius:6px;font-size:14px}
+.storage-list ul.more-info.show{display:block}
 .btn.small{padding:5px 12px;font-size:13px;margin-top:0}
 .btn.muted{background-color:rgb(190,170,165)}
 mark{background-color:rgb(200,225,195);color:rgb(50,80,45);padding:2px 10px;border-radius:10px;font-weight:bold}
@@ -74,14 +80,6 @@ a{color:rgb(190,110,110)}
 .action-list{display:flex;gap:15px}
 .action-card{flex:1;background-color:white;border:1px solid rgb(240,215,200);border-radius:10px;padding:15px;text-align:center}
 .action-card p{margin:0 0 5px 0}
-details{background-color:white;border:1px solid rgb(240,215,200);border-radius:8px;margin-bottom:10px}
-summary{display:flex;justify-content:space-between;align-items:center;padding:12px 15px;font-weight:bold;color:rgb(150,90,90);cursor:pointer;list-style:none}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"≡";font-size:22px;color:rgb(201,125,125)}
-details[open] summary::after{content:"×"}
-summary:hover{background-color:rgb(255,244,235)}
-details p,details ul{margin:0;padding:0 15px 12px 15px}
-details ul{padding-left:35px}
 .table-wrap{overflow-x:auto}
 table{border-collapse:collapse;width:100%;background-color:white}
 caption{text-align:left;font-weight:bold;color:rgb(150,90,90);padding-bottom:8px}
@@ -174,7 +172,15 @@ nav a{display:block;margin:0;padding:10px 0;border-bottom:1px solid rgb(240,215,
 <li>Location: Puerto Princesa City</li>
 <li><mark>Available</mark></li>
 </ul>
+<div class="card-actions">
 <a class="btn" href="register.html">Reserve</a>
+<button class="info-btn" onclick="this.parentElement.nextElementSibling.classList.toggle('show')">&#9776;</button>
+</div>
+<ul class="more-info">
+<li>Approximate size: 1 m x 1 m x 2 m</li>
+<li>Best for: documents, clothes, small appliances</li>
+<li>Rent is due monthly</li>
+</ul>
 </article>
 <article class="featured">
 <p class="ribbon">Most Popular</p>
@@ -186,7 +192,15 @@ nav a{display:block;margin:0;padding:10px 0;border-bottom:1px solid rgb(240,215,
 <li>Location: Puerto Princesa City</li>
 <li><mark>Available</mark></li>
 </ul>
+<div class="card-actions">
 <a class="btn" href="register.html">Reserve</a>
+<button class="info-btn" onclick="this.parentElement.nextElementSibling.classList.toggle('show')">&#9776;</button>
+</div>
+<ul class="more-info">
+<li>Approximate size: 2 m x 2 m x 2.5 m</li>
+<li>Best for: a bedroom set, a small shop's stock</li>
+<li>Rent is due monthly</li>
+</ul>
 </article>
 <article>
 <p class="ribbon">Biggest Size</p>
@@ -198,47 +212,17 @@ nav a{display:block;margin:0;padding:10px 0;border-bottom:1px solid rgb(240,215,
 <li>Location: Puerto Princesa City</li>
 <li><mark class="limited">Limited</mark></li>
 </ul>
+<div class="card-actions">
 <a class="btn" href="register.html">Reserve</a>
+<button class="info-btn" onclick="this.parentElement.nextElementSibling.classList.toggle('show')">&#9776;</button>
+</div>
+<ul class="more-info">
+<li>Approximate size: 3 m x 4 m x 2.5 m</li>
+<li>Best for: a full household, bulk business inventory</li>
+<li>Rent is due monthly</li>
+</ul>
 </article>
 </div>
-</section>
-<section id="info" class="content-block">
-<h2>Storage Information</h2>
-<details>
-<summary>Small Locker</summary>
-<p>Good for boxes, bags and seasonal items.</p>
-<ul>
-<li>Approximate size: 1 m x 1 m x 2 m</li>
-<li>Rate: &#8369;500 per month</li>
-<li>Best for: documents, clothes, small appliances</li>
-</ul>
-</details>
-<details>
-<summary>Medium Room</summary>
-<p>Fits furniture, appliances and small business stock.</p>
-<ul>
-<li>Approximate size: 2 m x 2 m x 2.5 m</li>
-<li>Rate: &#8369;1,500 per month</li>
-<li>Best for: a bedroom set, a small shop's stock</li>
-</ul>
-</details>
-<details>
-<summary>Large Room</summary>
-<p>Room for a whole house move or bulk inventory.</p>
-<ul>
-<li>Approximate size: 3 m x 4 m x 2.5 m</li>
-<li>Rate: &#8369;3,000 per month</li>
-<li>Best for: a full household, bulk business inventory</li>
-</ul>
-</details>
-<details>
-<summary>Questions and Answers</summary>
-<ul>
-<li>How do I reserve? Create an account, choose a size and send a request.</li>
-<li>When is rent due? On the same date each month as your move-in date.</li>
-<li>Can I cancel? Yes, before the request is confirmed.</li>
-</ul>
-</details>
 </section>
 <section id="how-it-works" class="content-block">
 <h2>How It Works</h2>
