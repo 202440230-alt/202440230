@@ -74,6 +74,14 @@ a{color:rgb(190,110,110)}
 .action-list{display:flex;gap:15px}
 .action-card{flex:1;background-color:white;border:1px solid rgb(240,215,200);border-radius:10px;padding:15px;text-align:center}
 .action-card p{margin:0 0 5px 0}
+details{background-color:white;border:1px solid rgb(240,215,200);border-radius:8px;margin-bottom:10px}
+summary{display:flex;justify-content:space-between;align-items:center;padding:12px 15px;font-weight:bold;color:rgb(150,90,90);cursor:pointer;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"≡";font-size:22px;color:rgb(201,125,125)}
+details[open] summary::after{content:"×"}
+summary:hover{background-color:rgb(255,244,235)}
+details p,details ul{margin:0;padding:0 15px 12px 15px}
+details ul{padding-left:35px}
 .table-wrap{overflow-x:auto}
 table{border-collapse:collapse;width:100%;background-color:white}
 caption{text-align:left;font-weight:bold;color:rgb(150,90,90);padding-bottom:8px}
@@ -193,6 +201,44 @@ nav a{display:block;margin:0;padding:10px 0;border-bottom:1px solid rgb(240,215,
 <a class="btn" href="register.html">Reserve</a>
 </article>
 </div>
+</section>
+<section id="info" class="content-block">
+<h2>Storage Information</h2>
+<details>
+<summary>Small Locker</summary>
+<p>Good for boxes, bags and seasonal items.</p>
+<ul>
+<li>Approximate size: 1 m x 1 m x 2 m</li>
+<li>Rate: &#8369;500 per month</li>
+<li>Best for: documents, clothes, small appliances</li>
+</ul>
+</details>
+<details>
+<summary>Medium Room</summary>
+<p>Fits furniture, appliances and small business stock.</p>
+<ul>
+<li>Approximate size: 2 m x 2 m x 2.5 m</li>
+<li>Rate: &#8369;1,500 per month</li>
+<li>Best for: a bedroom set, a small shop's stock</li>
+</ul>
+</details>
+<details>
+<summary>Large Room</summary>
+<p>Room for a whole house move or bulk inventory.</p>
+<ul>
+<li>Approximate size: 3 m x 4 m x 2.5 m</li>
+<li>Rate: &#8369;3,000 per month</li>
+<li>Best for: a full household, bulk business inventory</li>
+</ul>
+</details>
+<details>
+<summary>Questions and Answers</summary>
+<ul>
+<li>How do I reserve? Create an account, choose a size and send a request.</li>
+<li>When is rent due? On the same date each month as your move-in date.</li>
+<li>Can I cancel? Yes, before the request is confirmed.</li>
+</ul>
+</details>
 </section>
 <section id="how-it-works" class="content-block">
 <h2>How It Works</h2>
