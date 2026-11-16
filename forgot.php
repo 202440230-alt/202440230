@@ -69,13 +69,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="logo-block">
 <img class="logo-img" src="images/savespace-logo.svg" alt="SaveSpace logo">
 <div>
-<h1><a href="index.html"><span class="save">Save</span><span class="space">Space</span></a></h1>
+<h1><a href="index.php"><span class="save">Save</span><span class="space">Space</span></a></h1>
 <p class="tagline">Your Self-Storage Facility</p>
 </div>
 </div>
 <button class="hamburger" onclick="document.getElementById('main-nav').classList.toggle('nav-open')">&#9776;</button>
 <nav id="main-nav">
-<a href="index.html">Home</a>
+<a href="index.php">Home</a>
 <a href="login.php">Log In</a>
 <a href="register.html">Sign Up</a>
 </nav>

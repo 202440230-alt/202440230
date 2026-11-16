@@ -37,7 +37,7 @@
 <section class="content-block">
 <h2>Quick Actions</h2>
 <div class="action-list">
-<div class="action-card"><p>Browse Spaces</p><a class="btn small" href="index.html#storage">Open</a></div>
+<div class="action-card"><p>Browse Spaces</p><a class="btn small" href="index.php#storage">Open</a></div>
 <div class="action-card"><p>My Reservations</p><a class="btn small" href="reservations.php">Open</a></div>
 <div class="action-card"><p>Profile</p><a class="btn small" href="profile.php">Open</a></div>
 </div>

@@ -1,3 +1,19 @@
+<?php
+include('config.php');
+$counts = ["Small Locker" => 0, "Medium Room" => 0, "Large Room" => 0];
+$result = mysqli_query($db, "SELECT size, COUNT(*) AS free FROM units WHERE status = 'available' GROUP BY size");
+while ($row = mysqli_fetch_assoc($result)) {
+    $counts[$row['size']] = $row['free'];
+}
+function badge($free) {
+    if ($free == 0) {
+        return '<mark class="cancelled">Fully Booked</mark>';
+    } elseif ($free == 1) {
+        return '<mark class="limited">Limited</mark>';
+    }
+    return '<mark>Available</mark>';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,13 +29,13 @@
 <div class="logo-block">
 <img class="logo-img" src="images/savespace-logo.svg" alt="SaveSpace logo">
 <div>
-<h1><a href="index.html"><span class="save">Save</span><span class="space">Space</span></a></h1>
+<h1><a href="index.php"><span class="save">Save</span><span class="space">Space</span></a></h1>
 <p class="tagline">Your Self-Storage Facility</p>
 </div>
 </div>
 <button class="hamburger" onclick="document.getElementById('main-nav').classList.toggle('nav-open')">&#9776;</button>
 <nav id="main-nav">
-<a href="index.html" class="active-link">Home</a>
+<a href="index.php" class="active-link">Home</a>
 <a href="login.php">Log In</a>
 <a href="register.html">Sign Up</a>
 </nav>
@@ -60,7 +76,7 @@
 <ul>
 <li>Price: &#8369;500 / month</li>
 <li>Location: Puerto Princesa City</li>
-<li><mark>Available</mark></li>
+<li><?php echo badge($counts['Small Locker']); ?></li>
 </ul>
 <div class="card-actions">
 <a class="btn" href="register.html">Reserve</a>
@@ -80,7 +96,7 @@
 <ul>
 <li>Price: &#8369;1,500 / month</li>
 <li>Location: Puerto Princesa City</li>
-<li><mark>Available</mark></li>
+<li><?php echo badge($counts['Medium Room']); ?></li>
 </ul>
 <div class="card-actions">
 <a class="btn" href="register.html">Reserve</a>
@@ -100,7 +116,7 @@
 <ul>
 <li>Price: &#8369;3,000 / month</li>
 <li>Location: Puerto Princesa City</li>
-<li><mark class="limited">Limited</mark></li>
+<li><?php echo badge($counts['Large Room']); ?></li>
 </ul>
 <div class="card-actions">
 <a class="btn" href="register.html">Reserve</a>
