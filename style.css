@@ -459,6 +459,16 @@ form input:focus {
     margin-top: 8px;
 }
 
+ul.errors {
+    color: rgb(160,60,60);
+    padding-left: 20px;
+}
+
+ul.success {
+    color: rgb(50,80,45);
+    padding-left: 20px;
+}
+
 .link-row {
     display: flex;
     justify-content: space-between;
@@ -726,6 +736,21 @@ footer {
     color: rgb(150,90,90);
 }
 
+.footer-links {
+    margin-left: auto;
+}
+
+.footer-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    transition: opacity .3s;
+}
+
+.footer-icon:hover {
+    opacity: .6;
+}
+
 .footer-links a,
 .footer-legal a {
     margin-right: 16px;
@@ -815,5 +840,9 @@ footer {
     .footer-inner {
         flex-direction: column;
         align-items: flex-start;
+    }
+
+    .footer-links {
+        margin-left: 0;
     }
 }

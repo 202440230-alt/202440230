@@ -1,3 +1,4 @@
+<?php include('session.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,16 +14,16 @@
 <div class="logo-block">
 <img class="logo-img" src="images/savespace-logo.svg" alt="SaveSpace logo">
 <div>
-<h1><a href="home.html"><span class="save">Save</span><span class="space">Space</span></a></h1>
+<h1><a href="home.php"><span class="save">Save</span><span class="space">Space</span></a></h1>
 <p class="tagline">Your Self-Storage Facility</p>
 </div>
 </div>
 <button class="hamburger" onclick="document.getElementById('main-nav').classList.toggle('nav-open')">&#9776;</button>
 <nav id="main-nav">
-<a href="home.html">Home</a>
-<a href="reservations.html">My Reservations</a>
-<a href="profile.html" class="active-link">Profile</a>
-<a href="index.html">Log Out</a>
+<a href="home.php">Home</a>
+<a href="reservations.php">My Reservations</a>
+<a href="profile.php" class="active-link">Profile</a>
+<a href="logout.php">Log Out</a>
 </nav>
 </div>
 </header>
@@ -30,10 +31,10 @@
 <section class="content-block info-box">
 <h2>Account Summary</h2>
 <ul>
-<li>Name: Aieranwin Varias</li>
-<li>Email: aieranvarias13@gmail.com</li>
-<li>Contact: 0945 445 0181</li>
-<li>Member Since: January 2026</li>
+<li>Name: <?php echo htmlspecialchars($_SESSION['fullname']); ?></li>
+<li>Email: <?php echo htmlspecialchars($_SESSION['email']); ?></li>
+<li>Contact: <?php echo htmlspecialchars($_SESSION['contact']); ?></li>
+<li>Member Since: <?php echo date("F Y", strtotime($_SESSION['created_at'])); ?></li>
 </ul>
 </section>
 <section class="content-block info-box">
@@ -127,13 +128,13 @@
 </section>
 <section class="content-block info-box">
 <h2>Update Your Details</h2>
-<form action="profile.html" method="get">
+<form action="profile.php" method="get">
 <label for="pname">Full Name</label>
-<input type="text" id="pname" name="pname" value="Aieranwin Varias" required>
+<input type="text" id="pname" name="pname" value="<?php echo htmlspecialchars($_SESSION['fullname']); ?>" required>
 <label for="pemail">Email</label>
-<input type="email" id="pemail" name="pemail" value="aieranvarias13@gmail.com" required>
+<input type="email" id="pemail" name="pemail" value="<?php echo htmlspecialchars($_SESSION['email']); ?>" required>
 <label for="pcontact">Contact Number</label>
-<input type="tel" id="pcontact" name="pcontact" value="09454450181" pattern="09[0-9]{9}" title="11 digits starting with 09" required>
+<input type="tel" id="pcontact" name="pcontact" value="<?php echo htmlspecialchars($_SESSION['contact']); ?>" pattern="09[0-9]{9}" title="11 digits starting with 09" required>
 <button type="submit" class="btn">Save Changes</button>
 </form>
 </section>
@@ -142,8 +143,8 @@
 <div class="footer-inner">
 <div class="footer-brand"><img class="footer-logo" src="images/savespace-logo.svg" alt="SaveSpace logo"><span>SaveSpace</span></div>
 <div class="footer-links">
-<a href="mailto:savespace@gmail.com">&#9993; savespace@gmail.com</a>
-<a href="tel:09950939228">&#9743; 0995 093 9228</a>
+<a href="mailto:savespace@gmail.com" title="Email SaveSpace"><img class="footer-icon" src="images/savespace-icon-email.svg" alt="Email SaveSpace"></a>
+<a href="tel:09950939228" title="Call SaveSpace"><img class="footer-icon" src="images/savespace-icon-phone.svg" alt="Call SaveSpace"></a>
 </div>
 <div class="footer-legal">
 <a href="terms.html">Terms</a>
