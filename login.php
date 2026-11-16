@@ -1,47 +1,65 @@
-<?php
-include("config.php");
-session_start();
-
-if ($_SERVER["REQUEST_METHOD"] != "POST") {
-    header("Location: login.html");
-    exit();
-}
-
-$email = trim($_POST['email'] ?? '');
-$password = $_POST['password'] ?? '';
-
-if ($email == '' || $password == '') {
-    $title = "Log In Failed";
-    $messages = ["Please enter your email and password."];
-    $is_error = true;
-    $back_url = "login.html";
-    $back_text = "Go Back";
-    include("message.php");
-    exit();
-}
-
-$stmt = mysqli_prepare($db, "SELECT id, fullname, email, contact, password, created_at FROM users WHERE email = ?");
-mysqli_stmt_bind_param($stmt, "s", $email);
-mysqli_stmt_execute($stmt);
-$result = mysqli_stmt_get_result($stmt);
-$user = mysqli_fetch_assoc($result);
-mysqli_stmt_close($stmt);
-
-if ($user && password_verify($password, $user['password'])) {
-    session_regenerate_id(true);
-    $_SESSION['user_id'] = $user['id'];
-    $_SESSION['fullname'] = $user['fullname'];
-    $_SESSION['email'] = $user['email'];
-    $_SESSION['contact'] = $user['contact'];
-    $_SESSION['created_at'] = $user['created_at'];
-    header("Location: home.php");
-    exit();
-}
-
-$title = "Log In Failed";
-$messages = ["Your email or password is invalid."];
-$is_error = true;
-$back_url = "login.html";
-$back_text = "Try Again";
-include("message.php");
-?>
+<?php $saved_email = $_COOKIE['remember_email'] ?? ''; ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SaveSpace - Log In</title>
+<link rel="icon" type="image/svg+xml" href="images/savespace-logo.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<div class="header-inner">
+<div class="logo-block">
+<img class="logo-img" src="images/savespace-logo.svg" alt="SaveSpace logo">
+<div>
+<h1><a href="index.html"><span class="save">Save</span><span class="space">Space</span></a></h1>
+<p class="tagline">Your Self-Storage Facility</p>
+</div>
+</div>
+<button class="hamburger" onclick="document.getElementById('main-nav').classList.toggle('nav-open')">&#9776;</button>
+<nav id="main-nav">
+<a href="index.html">Home</a>
+<a href="login.php" class="active-link">Log In</a>
+<a href="register.html">Sign Up</a>
+</nav>
+</div>
+</header>
+<main>
+<section class="content-block info-box form-card">
+<h2>Log In</h2>
+<form action="authenticate.php" method="post">
+<label for="email">Email</label>
+<input type="email" id="email" name="email" placeholder="you@example.com" value="<?php echo htmlspecialchars($saved_email); ?>" required>
+<label for="password">Password</label>
+<input type="password" id="password" name="password" minlength="8" required>
+<div class="remember-row">
+<input type="checkbox" id="remember" name="remember"<?php if ($saved_email != '') { echo ' checked'; } ?>>
+<label for="remember">Remember Me</label>
+</div>
+<button type="submit" class="btn">Log In</button>
+</form>
+<div class="link-row">
+<a href="forgot.php">Forgot Password?</a>
+<a href="register.html">No account? Register</a>
+</div>
+<p class="small-note">Owner of SaveSpace? <a href="admin.php">Admin Log In</a></p>
+</section>
+</main>
+<footer>
+<div class="footer-inner">
+<div class="footer-brand"><img class="footer-logo" src="images/savespace-logo.svg" alt="SaveSpace logo"><span>SaveSpace</span></div>
+<div class="footer-links">
+<a href="mailto:savespace@gmail.com" title="Email SaveSpace"><img class="footer-icon" src="images/savespace-icon-email.svg" alt="Email SaveSpace"></a>
+<a href="tel:09950939228" title="Call SaveSpace"><img class="footer-icon" src="images/savespace-icon-phone.svg" alt="Call SaveSpace"></a>
+</div>
+<div class="footer-legal">
+<a href="terms.html">Terms</a>
+<a href="privacy.html">Privacy</a>
+</div>
+</div>
+<p class="footer-copyright">&copy; 2026 SaveSpace. All rights reserved.</p>
+</footer>
+</body>
+</html>

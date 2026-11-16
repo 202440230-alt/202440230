@@ -64,7 +64,7 @@ mysqli_stmt_close($stmt);
 $title = "Account Created";
 $messages = ["Your account is ready. You can log in now."];
 $is_error = false;
-$back_url = "login.html";
+$back_url = "login.php";
 $back_text = "Go to Log In";
 include("message.php");
 ?>

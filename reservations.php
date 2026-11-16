@@ -1,4 +1,12 @@
-<?php include('session.php'); ?>
+<?php
+include('session.php');
+include('config.php');
+$stmt = mysqli_prepare($db, "SELECT r.id, r.movein, r.months, r.status, u.code, u.size, u.rate FROM reservations r JOIN units u ON r.unit_id = u.id WHERE r.user_id = ? ORDER BY r.id DESC");
+mysqli_stmt_bind_param($stmt, "i", $_SESSION['user_id']);
+mysqli_stmt_execute($stmt);
+$result = mysqli_stmt_get_result($stmt);
+$total = mysqli_num_rows($result);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,21 +38,40 @@
 <main>
 <section class="content-block">
 <h2>My Reservations</h2>
+<?php if ($total == 0) { ?>
+<p>You have no reservations yet.</p>
+<?php } else { ?>
 <div class="table-wrap">
 <table>
 <caption>Your reservations</caption>
 <thead>
-<tr><th>Unit</th><th>Size</th><th>Move-in</th><th>Monthly Rate</th><th>Status</th><th>Action</th></tr>
+<tr><th>Unit</th><th>Size</th><th>Move-in</th><th>Length</th><th>Monthly Rate</th><th>Status</th><th>Action</th></tr>
 </thead>
 <tbody>
-<tr><td>B-12</td><td>Medium Room</td><td>Nov 1, 2026</td><td>&#8369;1,500</td><td><mark class="pending">Pending</mark></td><td><a class="btn small muted" href="reservations.php">Cancel Request</a></td></tr>
-<tr><td>B-10</td><td>Medium Room</td><td>Sep 1, 2026</td><td>&#8369;1,500</td><td><mark>Confirmed</mark></td><td>None</td></tr>
-<tr><td>A-07</td><td>Small Locker</td><td>Aug 15, 2026</td><td>&#8369;500</td><td><mark>Confirmed</mark></td><td>None</td></tr>
-<tr><td>A-05</td><td>Small Locker</td><td>Feb 1, 2026</td><td>&#8369;500</td><td><mark class="completed">Completed</mark></td><td>None</td></tr>
-<tr><td>C-21</td><td>Large Room</td><td>Jan 10, 2026</td><td>&#8369;3,000</td><td><mark class="cancelled">Cancelled</mark></td><td>None</td></tr>
+<?php while ($row = mysqli_fetch_assoc($result)) { ?>
+<tr>
+<td><?php echo htmlspecialchars($row['code']); ?></td>
+<td><?php echo htmlspecialchars($row['size']); ?></td>
+<td><?php echo date("M j, Y", strtotime($row['movein'])); ?></td>
+<td><?php echo $row['months']; ?> <?php echo $row['months'] == 1 ? 'month' : 'months'; ?></td>
+<td>&#8369;<?php echo number_format($row['rate']); ?></td>
+<td><mark<?php if ($row['status'] != 'confirmed') { echo ' class="' . $row['status'] . '"'; } ?>><?php echo ucfirst($row['status']); ?></mark></td>
+<td>
+<?php if ($row['status'] == 'pending') { ?>
+<form action="cancel.php" method="post">
+<input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+<button type="submit" class="btn small muted">Cancel Request</button>
+</form>
+<?php } else { ?>
+None
+<?php } ?>
+</td>
+</tr>
+<?php } ?>
 </tbody>
 </table>
 </div>
+<?php } ?>
 <a class="btn" href="home.php#reserve">Reserve Another Space</a>
 </section>
 </main>

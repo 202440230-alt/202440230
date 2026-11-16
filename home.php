@@ -44,17 +44,17 @@
 </section>
 <section id="reserve" class="content-block info-box">
 <h2>Reserve a Space</h2>
-<form action="reservations.php" method="get">
+<form action="reserve.php" method="post">
 <fieldset>
 <legend>Choose your unit</legend>
 <label for="size">Storage Size</label>
 <select id="size" name="size">
-<option value="small">Small Locker - &#8369;500 / month</option>
-<option value="medium">Medium Room - &#8369;1,500 / month</option>
-<option value="large">Large Room - &#8369;3,000 / month</option>
+<option value="Small Locker">Small Locker - &#8369;500 / month</option>
+<option value="Medium Room">Medium Room - &#8369;1,500 / month</option>
+<option value="Large Room">Large Room - &#8369;3,000 / month</option>
 </select>
 <label for="movein">Move-in Date</label>
-<input type="date" id="movein" name="movein" required>
+<input type="date" id="movein" name="movein" min="<?php echo date('Y-m-d'); ?>" required>
 <label for="months">Rental Length</label>
 <select id="months" name="months">
 <option value="1">1 month</option>
@@ -66,7 +66,7 @@
 <fieldset>
 <legend>Anything we should know?</legend>
 <label for="notes">Notes</label>
-<textarea id="notes" name="notes" rows="4" placeholder="What will you store?"></textarea>
+<textarea id="notes" name="notes" rows="4" maxlength="300" placeholder="What will you store?"></textarea>
 </fieldset>
 <button type="submit" class="btn">Submit Request</button>
 </form>
