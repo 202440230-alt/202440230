@@ -1,50 +1,58 @@
 # SaveSpace
-SaveSpace is a simple storage space booking website designed for people in Palawan who need a safe place to temporarily store their belongings.
+SaveSpace is a self-storage booking website for Puerto Princesa City, Palawan. Customers create an account, reserve a storage unit online, and track their rental; the owner confirms, cancels or completes reservations from an admin dashboard.
 
-This project is inspired by storage rental businesses such as ExtraSpace (based in Cebu), but it is designed as a smaller and more realistic system for Palawan.
+The project is inspired by storage rental businesses such as ExtraSpace (based in Cebu), designed as a smaller, realistic system for Palawan.
 
 # Project Purpose
-SaveSpace aims to help:
+SaveSpace helps:
 - Students who need temporary storage during school breaks
 - Families who are moving or renovating
 - Small business owners who need extra inventory space
 - Travellers who need short-term luggage storage
 
-# Current Pages
+# Features
+- Sign up, log in (with Remember Me), log out, and forgot password
+- Live unit availability on the home page (Available / Limited / Fully Booked)
+- Online reservation: choose a size, move-in date and rental length (1, 3, 6 or 12 months); the system assigns the first free unit
+- My Reservations: view status and cancel pending requests
+- Profile: account summary, rental tracking, rental history, and editing your details
+- Owner dashboard: total units, occupied units, pending requests, monthly income; confirm, cancel or complete reservations; change unit availability
 
-## Public Pages
-- `index.html` — the landing/home page. Includes the hero, About, Storage Spaces (with three sample storage cards), How It Works, Why Choose SaveSpace, and a call-to-action, all on one page.
-- `login.html` — log in form (email, password, remember me).
-- `register.html` — account creation form (name, email, contact number, password).
-
-## Logged-In Pages (prototype only, no real backend)
-- `home.html` — sample logged-in dashboard with a welcome message and quick-action shortcuts.
-- `reservations.html` — sample reservation table showing storage type, dates, price, and status.
-- `profile.html` — sample account summary and an editable-looking profile form.
-
-Public navigation: Home | Log In | Sign Up
-Logged-in navigation: Home | My Reservations | Profile | Log Out
+# Pages
+Public: `index.php`, `register.html`, `login.php`, `forgot.php`, `terms.html`, `privacy.html`
+Customer: `home.php`, `reservations.php`, `profile.php`
+Owner: `admin.php`
+Handlers: `authenticate.php`, `register.php`, `reserve.php`, `cancel.php`, `update_profile.php`, `admin_action.php`, `logout.php`
+Shared: `config.php` (database connection), `session.php` (login check), `message.php` (result page)
 
 # Storage Categories
-- Small Locker — documents, bags, and small boxes — ₱500/month
-- Medium Storage Room — student belongings and household items — ₱1,500/month
-- Large Storage Room — furniture and small business inventory — ₱3,000/month
+| Size | Units | Rate |
+|------|-------|------|
+| Small Locker | A-05, A-06, A-07 | ₱500/month |
+| Medium Room | B-10, B-11, B-12 | ₱1,500/month |
+| Large Room | C-19, C-20, C-21 | ₱3,000/month |
 
 # Reservation Statuses
-- Pending
-- Confirmed
-- Completed
-- Cancelled
+Pending → Confirmed → Completed, or Pending → Cancelled
 
-# Current Limitations
-This is a frontend-only prototype for a Web Systems class project.
-- No backend or database — forms do not submit or save data.
-- Login and registration do not authenticate real users.
-- The logged-in pages show sample data to demonstrate the intended layout.
+# Database
+MySQL database `savespace` with three tables: `users`, `units`, `reservations`. Import `database.sql` to create the tables, the nine units and the owner account.
+
+# How to Run
+1. Install XAMPP and start Apache and MySQL.
+2. Copy this folder to `C:\xampp\htdocs\202440230`.
+3. Import `database.sql` in phpMyAdmin.
+4. Check the MySQL port in `config.php` (set to 3307).
+5. Open `http://localhost/202440230/index.php`.
+
+# Security
+- Passwords hashed with `password_hash()` and checked with `password_verify()`
+- Prepared statements for every query that uses user input (prevents SQL injection)
+- `htmlspecialchars()` on user data shown on pages (prevents XSS)
+- Sessions protect logged-in pages; admin pages check the user's role
+- Validation in the browser and again in PHP
 
 # Tools and Technologies
-- HTML
-- CSS
-- A small amount of JavaScript (one line, used only to toggle the mobile navigation menu open/closed)
-- Visual Studio Code
-- GitHub
+- HTML, CSS, a little JavaScript (menu toggles)
+- PHP and MySQL (XAMPP)
+- Visual Studio Code, Visual Studio, GitHub
